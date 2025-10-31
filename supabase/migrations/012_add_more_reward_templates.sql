@@ -1,0 +1,97 @@
+-- Add 80 more reward templates covering all age groups and interests
+-- Total will be 100 reward ideas after this migration
+
+INSERT INTO reward_templates (name, description, category, suggested_points, icon, age_appropriate, popularity, tags) VALUES
+  -- Screen Time & Digital (10 rewards)
+  ('YouTube Time', '30 minutes of YouTube videos', 'Screen Time', 40, '📺', ARRAY['kid', 'teen'], 88, ARRAY['youtube', 'video', 'screen time']),
+  ('Social Media Time', 'Extra 30 minutes on social media', 'Digital', 50, '📱', ARRAY['teen', 'adult'], 85, ARRAY['social media', 'phone', 'digital']),
+  ('Gaming Marathon', '2 hours of uninterrupted gaming time', 'Screen Time', 150, '🎮', ARRAY['kid', 'teen'], 92, ARRAY['gaming', 'video games', 'marathon']),
+  ('Stream Your Favorite Show', 'Watch 2 episodes of your choice', 'Screen Time', 80, '📺', ARRAY['kid', 'teen', 'adult'], 90, ARRAY['tv', 'streaming', 'netflix']),
+  ('Download Premium App', 'One paid app or game download', 'Digital', 200, '📲', ARRAY['teen', 'adult'], 75, ARRAY['app', 'premium', 'download']),
+  ('Tablet Time', '1 hour of tablet time', 'Screen Time', 60, '📱', ARRAY['kid'], 87, ARRAY['tablet', 'ipad', 'screen time']),
+  ('Online Shopping Credit', '$10 online shopping credit', 'Digital', 250, '🛒', ARRAY['teen', 'adult'], 80, ARRAY['shopping', 'online', 'credit']),
+  ('Music Streaming Premium', '1 month of premium music service', 'Digital', 300, '🎵', ARRAY['teen', 'adult'], 78, ARRAY['music', 'spotify', 'premium']),
+  ('Video Call with Friend', '30 minute video chat with friend', 'Digital', 30, '💬', ARRAY['kid', 'teen'], 82, ARRAY['video call', 'friend', 'social']),
+  ('No Screen Time Limits', 'One day without screen time restrictions', 'Screen Time', 400, '🔓', ARRAY['teen'], 70, ARRAY['unlimited', 'screen time', 'freedom']),
+
+  -- Food & Treats (15 rewards)
+  ('Favorite Restaurant', 'Dinner at your favorite restaurant', 'Food & Treats', 300, '🍽️', ARRAY['kid', 'teen', 'adult'], 89, ARRAY['restaurant', 'dining', 'food']),
+  ('Baking Together', 'Bake cookies or cake with parent', 'Food & Treats', 100, '🧁', ARRAY['kid', 'teen'], 85, ARRAY['baking', 'cooking', 'quality time']),
+  ('Candy Store Visit', 'Pick treats at candy store', 'Food & Treats', 80, '🍬', ARRAY['kid'], 90, ARRAY['candy', 'sweets', 'shopping']),
+  ('Breakfast in Bed', 'Special breakfast served in bed', 'Food & Treats', 120, '🥞', ARRAY['kid', 'teen', 'adult'], 88, ARRAY['breakfast', 'special', 'treat']),
+  ('Donut Run', 'Trip to favorite donut shop', 'Food & Treats', 60, '🍩', ARRAY['kid', 'teen', 'adult'], 87, ARRAY['donuts', 'treat', 'outing']),
+  ('Smoothie Bar', 'Make-your-own smoothie bar at home', 'Food & Treats', 70, '🥤', ARRAY['kid', 'teen'], 83, ARRAY['smoothie', 'healthy', 'fun']),
+  ('Fast Food Choice', 'Pick fast food for dinner', 'Food & Treats', 100, '🍔', ARRAY['kid', 'teen'], 91, ARRAY['fast food', 'burger', 'dinner']),
+  ('Fancy Coffee Drink', 'Specialty coffee or frappuccino', 'Food & Treats', 80, '☕', ARRAY['teen', 'adult'], 84, ARRAY['coffee', 'starbucks', 'drink']),
+  ('Sushi Night', 'Order sushi for dinner', 'Food & Treats', 180, '🍱', ARRAY['teen', 'adult'], 79, ARRAY['sushi', 'japanese', 'dinner']),
+  ('Cook Together', 'Choose and cook a meal with parent', 'Food & Treats', 90, '👨‍🍳', ARRAY['kid', 'teen'], 86, ARRAY['cooking', 'quality time', 'learning']),
+  ('Snack Stash', 'Fill your personal snack drawer', 'Food & Treats', 150, '🍿', ARRAY['kid', 'teen'], 88, ARRAY['snacks', 'treats', 'stash']),
+  ('Bubble Tea Trip', 'Visit bubble tea shop', 'Food & Treats', 70, '🧋', ARRAY['teen', 'adult'], 82, ARRAY['bubble tea', 'boba', 'drink']),
+  ('Make Your Own Sundae', 'Ice cream sundae bar at home', 'Food & Treats', 85, '🍨', ARRAY['kid', 'teen'], 89, ARRAY['ice cream', 'sundae', 'dessert']),
+  ('Taco Tuesday', 'Make-your-own taco night', 'Food & Treats', 95, '🌮', ARRAY['kid', 'teen', 'adult'], 87, ARRAY['tacos', 'mexican', 'dinner']),
+  ('Picnic at Park', 'Special picnic with favorite foods', 'Food & Treats', 110, '🧺', ARRAY['kid', 'teen'], 84, ARRAY['picnic', 'outdoor', 'food']),
+
+  -- Privileges & Freedom (15 rewards)
+  ('Stay Up 2 Hours Late', 'Stay up 2 hours past bedtime', 'Privileges', 180, '🌙', ARRAY['kid', 'teen'], 86, ARRAY['late night', 'bedtime', 'freedom']),
+  ('Sleep In', 'No wake up time on weekend', 'Privileges', 120, '😴', ARRAY['teen', 'adult'], 90, ARRAY['sleep', 'weekend', 'rest']),
+  ('Skip Room Cleaning', 'Skip room cleaning for a week', 'Privileges', 150, '🧹', ARRAY['kid', 'teen'], 82, ARRAY['chore skip', 'cleaning', 'break']),
+  ('Choose Car Music', 'Pick music for all car rides today', 'Privileges', 40, '🎵', ARRAY['kid', 'teen'], 85, ARRAY['music', 'car', 'choice']),
+  ('No Homework Night', 'One night with no homework (weekend)', 'Privileges', 100, '📚', ARRAY['kid', 'teen'], 75, ARRAY['homework', 'break', 'school']),
+  ('Extra Allowance', 'Double your weekly allowance', 'Money', 200, '💰', ARRAY['kid', 'teen'], 88, ARRAY['money', 'allowance', 'bonus']),
+  ('Plan Family Activity', 'Choose and plan a family outing', 'Privileges', 250, '🎯', ARRAY['teen', 'adult'], 81, ARRAY['planning', 'family', 'choice']),
+  ('Private Room Time', '2 hours of undisturbed alone time', 'Privileges', 80, '🚪', ARRAY['teen', 'adult'], 83, ARRAY['privacy', 'alone time', 'quiet']),
+  ('Pet Responsibility Pass', 'Skip pet care duties for a day', 'Privileges', 60, '🐕', ARRAY['kid', 'teen'], 78, ARRAY['pet', 'chore skip', 'animals']),
+  ('Drive the Cart', 'Push the cart at grocery store', 'Privileges', 20, '🛒', ARRAY['kid'], 80, ARRAY['shopping', 'helper', 'fun']),
+  ('Redecorate Room', 'Choose new decor for your room', 'Privileges', 400, '🎨', ARRAY['teen'], 77, ARRAY['room', 'decorate', 'personal space']),
+  ('No Nagging Day', 'One day without being reminded of chores', 'Privileges', 150, '🔕', ARRAY['teen'], 84, ARRAY['freedom', 'independence', 'trust']),
+  ('Pick Sibling Activity', 'Choose what you do with sibling', 'Privileges', 70, '👫', ARRAY['kid', 'teen'], 79, ARRAY['sibling', 'activity', 'choice']),
+  ('Extended Curfew', 'Stay out 1 hour later than usual', 'Privileges', 180, '⏰', ARRAY['teen'], 86, ARRAY['curfew', 'freedom', 'independence']),
+  ('Phone in Bedroom', 'Keep phone in room overnight', 'Privileges', 220, '📱', ARRAY['teen'], 81, ARRAY['phone', 'privilege', 'trust']),
+
+  -- Items & Shopping (12 rewards)
+  ('Clothing Item', 'One clothing item of your choice ($25)', 'Items', 200, '👕', ARRAY['teen', 'adult'], 85, ARRAY['clothes', 'shopping', 'fashion']),
+  ('Book Series', 'Complete book series purchase', 'Items', 250, '📚', ARRAY['kid', 'teen'], 80, ARRAY['books', 'reading', 'series']),
+  ('Craft Supplies', 'Visit craft store for supplies', 'Items', 120, '✂️', ARRAY['kid', 'teen'], 78, ARRAY['crafts', 'art', 'creativity']),
+  ('Poster or Wall Art', 'Choose poster or wall decoration', 'Items', 80, '🖼️', ARRAY['teen'], 76, ARRAY['decor', 'poster', 'room']),
+  ('Collectible Item', 'One collectible or trading card pack', 'Items', 100, '🎴', ARRAY['kid', 'teen'], 84, ARRAY['collectible', 'cards', 'hobby']),
+  ('Room Accessory', 'New lamp, pillow, or room item', 'Items', 150, '💡', ARRAY['teen', 'adult'], 75, ARRAY['room', 'decor', 'furniture']),
+  ('Makeup or Skincare', 'Beauty product of your choice', 'Items', 100, '💄', ARRAY['teen', 'adult'], 79, ARRAY['beauty', 'makeup', 'skincare']),
+  ('Magazine Subscription', '6 months of favorite magazine', 'Items', 90, '📰', ARRAY['teen', 'adult'], 72, ARRAY['magazine', 'reading', 'subscription']),
+  ('Plant for Room', 'Choose a plant for your space', 'Items', 60, '🌱', ARRAY['teen', 'adult'], 74, ARRAY['plant', 'nature', 'decor']),
+  ('Gaming Accessory', 'Controller, headset, or game accessory', 'Items', 300, '🎧', ARRAY['teen'], 88, ARRAY['gaming', 'accessory', 'tech']),
+  ('Jewelry Item', 'Simple jewelry piece ($30)', 'Items', 180, '💍', ARRAY['teen', 'adult'], 77, ARRAY['jewelry', 'accessory', 'fashion']),
+  ('Hobby Supplies', 'Supplies for your hobby ($40)', 'Items', 250, '🎨', ARRAY['teen', 'adult'], 81, ARRAY['hobby', 'supplies', 'passion']),
+
+  -- Outings & Experiences (15 rewards)
+  ('Trampoline Park', 'Visit trampoline or jump park', 'Outings', 200, '🤸', ARRAY['kid', 'teen'], 89, ARRAY['trampoline', 'active', 'fun']),
+  ('Mini Golf', 'Mini golf outing with family', 'Outings', 150, '⛳', ARRAY['kid', 'teen', 'adult'], 87, ARRAY['golf', 'outdoor', 'game']),
+  ('Bowling Night', 'Go bowling with friends or family', 'Outings', 180, '🎳', ARRAY['kid', 'teen', 'adult'], 88, ARRAY['bowling', 'social', 'game']),
+  ('Museum Visit', 'Trip to science or art museum', 'Outings', 160, '🏛️', ARRAY['kid', 'teen'], 76, ARRAY['museum', 'educational', 'culture']),
+  ('Arcade Time', '$20 for arcade games', 'Outings', 170, '🕹️', ARRAY['kid', 'teen'], 90, ARRAY['arcade', 'games', 'fun']),
+  ('Swimming Pool Day', 'Day at public pool or water park', 'Outings', 190, '🏊', ARRAY['kid', 'teen'], 86, ARRAY['swimming', 'water', 'summer']),
+  ('Zoo Trip', 'Visit the zoo', 'Outings', 220, '🦁', ARRAY['kid'], 84, ARRAY['zoo', 'animals', 'educational']),
+  ('Beach Day', 'Full day at the beach', 'Outings', 280, '🏖️', ARRAY['kid', 'teen', 'adult'], 91, ARRAY['beach', 'summer', 'outdoor']),
+  ('Escape Room', 'Escape room experience', 'Outings', 240, '🔐', ARRAY['teen', 'adult'], 82, ARRAY['escape room', 'puzzle', 'team']),
+  ('Concert or Show', 'Attend concert or performance', 'Outings', 400, '🎤', ARRAY['teen', 'adult'], 85, ARRAY['concert', 'music', 'entertainment']),
+  ('Hiking Adventure', 'Special hiking trip to new trail', 'Outings', 140, '🥾', ARRAY['kid', 'teen', 'adult'], 78, ARRAY['hiking', 'nature', 'outdoor']),
+  ('Ice Skating', 'Ice skating session', 'Outings', 130, '⛸️', ARRAY['kid', 'teen'], 83, ARRAY['skating', 'ice', 'winter']),
+  ('Library Book Haul', 'Check out unlimited library books', 'Outings', 50, '📚', ARRAY['kid', 'teen'], 75, ARRAY['library', 'books', 'reading']),
+  ('Roller Skating', 'Roller skating rink visit', 'Outings', 140, '🛼', ARRAY['kid', 'teen'], 84, ARRAY['skating', 'active', 'fun']),
+  ('Thrift Store Shopping', '$20 at thrift or secondhand store', 'Outings', 160, '🛍️', ARRAY['teen', 'adult'], 80, ARRAY['shopping', 'thrift', 'treasure hunt']),
+
+  -- Social & Quality Time (8 rewards)
+  ('Invite Friend Over', 'Have a friend over for 4 hours', 'Social', 150, '👯', ARRAY['kid', 'teen'], 89, ARRAY['friend', 'social', 'playdate']),
+  ('Sleepover Party', 'Host 2-3 friends for sleepover', 'Social', 350, '🎉', ARRAY['teen'], 87, ARRAY['sleepover', 'party', 'friends']),
+  ('One-on-One Time', '2 hours alone with parent doing activity of choice', 'Social', 180, '❤️', ARRAY['kid', 'teen'], 92, ARRAY['quality time', 'parent', 'bonding']),
+  ('Video Game with Parent', 'Parent plays video games with you for 1 hour', 'Social', 100, '🎮', ARRAY['kid', 'teen'], 88, ARRAY['gaming', 'parent', 'quality time']),
+  ('Family Game Night', 'Choose all games for family game night', 'Social', 90, '🎲', ARRAY['kid', 'teen'], 86, ARRAY['games', 'family', 'fun']),
+  ('Mall Trip with Friends', 'Hang out at mall with friends (3 hours)', 'Social', 200, '🏬', ARRAY['teen'], 85, ARRAY['mall', 'friends', 'social']),
+  ('Friend to Restaurant', 'Bring a friend to dinner out', 'Social', 280, '🍕', ARRAY['teen'], 83, ARRAY['friend', 'restaurant', 'social']),
+  ('Park Playdate', 'Extended playdate at park with friend', 'Social', 120, '🎈', ARRAY['kid'], 87, ARRAY['park', 'friend', 'outdoor']),
+
+  -- Learning & Growth (5 rewards)
+  ('Choose a Class', 'One month of activity class (art, music, sports)', 'Items', 400, '🎓', ARRAY['kid', 'teen'], 79, ARRAY['class', 'learning', 'activity']),
+  ('Museum Membership', '3-month museum membership', 'Items', 350, '🎨', ARRAY['kid', 'teen'], 74, ARRAY['museum', 'membership', 'educational']),
+  ('Instrument Rental', 'Rent musical instrument for 3 months', 'Items', 450, '🎸', ARRAY['teen'], 71, ARRAY['music', 'instrument', 'learning']),
+  ('Educational Game', 'Educational board game or puzzle', 'Items', 130, '🧩', ARRAY['kid'], 77, ARRAY['game', 'educational', 'learning']),
+  ('Science Kit', 'Science experiment or robot kit', 'Items', 200, '🔬', ARRAY['kid', 'teen'], 80, ARRAY['science', 'STEM', 'learning']);

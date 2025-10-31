@@ -1,0 +1,24 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 10000,
+    "wait": 1000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    },
+    "reporters": [
+      "cli",
+      "json"
+    ],
+    "hideElements": ".cookie-banner, .dev-role-toggle"
+  },
+  "urls": [
+    "http://localhost:3000",
+    "http://localhost:3000/dashboard",
+    "http://localhost:3000/tasks",
+    "http://localhost:3000/rewards",
+    "http://localhost:3000/badges",
+    "http://localhost:3000/calendar",
+    "http://localhost:3000/settings"
+  ]
+}
