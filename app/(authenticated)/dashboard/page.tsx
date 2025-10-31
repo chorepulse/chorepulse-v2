@@ -67,7 +67,7 @@ export default function DashboardV2Enhanced() {
   // Set user role from currentUser data
   useEffect(() => {
     if (currentUser?.role) {
-      setUserRole(currentUser.role)
+      setUserRole(currentUser.role as 'kid' | 'teen' | 'adult')
     }
   }, [currentUser])
 
