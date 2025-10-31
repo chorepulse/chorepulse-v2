@@ -149,7 +149,7 @@ export default function LandingPage() {
             See How It Works
           </Link>
         </div>
-        <p className="text-sm text-gray-500 mt-6">14-day free trial • No credit card required</p>
+        <p className="text-sm text-gray-500 mt-6">14-day free trial • Always free Starter plan available</p>
       </section>
 
       {/* Features Section */}
@@ -365,7 +365,7 @@ export default function LandingPage() {
               },
               {
                 q: "What if I'm not satisfied?",
-                a: "We offer a 14-day free trial so you can test ChorePulse risk-free. No credit card required to start your trial."
+                a: "We offer a 14-day free trial so you can test Premium or Unlimited plans risk-free. You can also use our always-free Starter plan with no commitment."
               }
             ].map((faq, i) => (
               <div key={i} className="bg-white p-6 rounded-lg">
@@ -384,7 +384,7 @@ export default function LandingPage() {
             Ready to Transform Your Family?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Start your 14-day free trial today. No credit card required.
+            Start your 14-day free trial today or use our always-free Starter plan.
           </p>
           <Link
             href="/signup"

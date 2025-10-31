@@ -132,7 +132,7 @@ export default function SignupPage() {
               Create Your Account
             </h1>
             <p className="text-gray-600">
-              Start your 14-day free trial. No credit card required.
+              Start your 14-day free trial or use our always-free Starter plan.
             </p>
           </div>
 
@@ -232,7 +232,7 @@ export default function SignupPage() {
             Bank-level encryption
           </p>
           <p className="mt-1">
-            No credit card required • Cancel anytime
+            Always-free Starter plan available • Cancel paid plans anytime
           </p>
         </div>
       </div>
