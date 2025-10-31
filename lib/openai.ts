@@ -9,10 +9,17 @@
 
 import OpenAI from 'openai'
 
-// Initialize OpenAI client
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+// Lazy-initialize OpenAI client only when needed (not during build)
+let _openai: OpenAI | null = null
+
+export function getOpenAIClient(): OpenAI {
+  if (!_openai) {
+    _openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  }
+  return _openai
+}
 
 // Default model from environment or fallback
 export const DEFAULT_MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini'
@@ -81,7 +88,8 @@ export async function createCompletion(params: {
   } = params
 
   try {
-    const completion = await openai.chat.completions.create({
+    const client = getOpenAIClient()
+    const completion = await client.chat.completions.create({
       model,
       messages,
       temperature,
