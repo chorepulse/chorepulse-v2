@@ -49,15 +49,14 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3">
+          <Link href="/" className="inline-flex items-center justify-center">
             <Image
-              src="/logo.png"
+              src="/logos/ChorePulse Logo 1-Transparent.png"
               alt="ChorePulse"
-              width={48}
-              height={48}
-              className="rounded-lg"
+              width={256}
+              height={64}
+              className="h-16 w-auto"
             />
-            <span className="text-2xl font-bold text-gray-900">ChorePulse</span>
           </Link>
         </div>
 
