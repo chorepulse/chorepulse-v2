@@ -321,3 +321,88 @@ export async function sendPasswordResetEmail(email: string, resetToken: string):
 
   return await sendEmail({ to: email, subject, html })
 }
+
+interface FamilyInvitationEmailData {
+  inviteeEmail: string
+  inviteeName: string
+  inviterName: string
+  familyName: string
+  userRole: 'adult' | 'teen' | 'kid'
+  invitationToken: string
+  organizationId: string
+}
+
+/**
+ * Send family invitation email to adult members
+ */
+export async function sendFamilyInvitationEmail(data: FamilyInvitationEmailData): Promise<boolean> {
+  const {
+    inviteeEmail,
+    inviteeName,
+    inviterName,
+    familyName,
+    userRole,
+    invitationToken,
+    organizationId
+  } = data
+
+  // Import template at runtime to avoid circular dependencies
+  const { EMAIL_TEMPLATES } = await import('./email-templates')
+
+  const invitationUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'https://chorepulse.com'}/accept-invitation?token=${invitationToken}&org=${organizationId}`
+
+  const roleDescriptions = {
+    adult: 'As an adult member, you can manage tasks, approve completions, view family analytics, and help keep everyone on track.',
+    teen: 'As a teen member, you can complete tasks, earn points, track your progress, and work towards rewards.',
+    kid: 'As a kid member, you can complete fun tasks, earn points, unlock cool badges, and compete on the family leaderboard!'
+  }
+
+  // Replace template variables
+  let html = EMAIL_TEMPLATES.FAMILY_INVITATION
+    .replace(/\{\{inviteeName\}\}/g, inviteeName)
+    .replace(/\{\{inviterName\}\}/g, inviterName)
+    .replace(/\{\{familyName\}\}/g, familyName)
+    .replace(/\{\{userRole\}\}/g, userRole.charAt(0).toUpperCase() + userRole.slice(1))
+    .replace(/\{\{roleDescription\}\}/g, roleDescriptions[userRole])
+    .replace(/\{\{invitationUrl\}\}/g, invitationUrl)
+    .replace(/\{\{appUrl\}\}/g, process.env.NEXT_PUBLIC_APP_URL || 'https://chorepulse.com')
+
+  const subject = `You're Invited to Join ${familyName} on ChorePulse!`
+
+  const text = `
+You're Invited to Join ${familyName} on ChorePulse!
+
+Hi ${inviteeName},
+
+${inviterName} has invited you to join ${familyName} on ChorePulse - a family task and chore management platform.
+
+Your Role: ${userRole.charAt(0).toUpperCase() + userRole.slice(1)}
+${roleDescriptions[userRole]}
+
+What is ChorePulse?
+ChorePulse helps families build better habits together through:
+- Task Management - Complete chores and earn points
+- Achievement System - Unlock badges and track progress
+- Family Analytics - See how everyone contributes
+- Rewards - Redeem points for family rewards
+
+Get Started:
+1. Accept the invitation by visiting: ${invitationUrl}
+2. Set your password
+3. Start completing tasks and earning points!
+
+This invitation link expires in 7 days.
+
+If you didn't expect this invitation, you can safely ignore this email.
+
+Best regards,
+The ChorePulse Team
+  `
+
+  return await sendEmail({
+    to: inviteeEmail,
+    subject,
+    html,
+    text
+  })
+}

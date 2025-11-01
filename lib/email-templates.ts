@@ -183,6 +183,10 @@ export function wrapEmailTemplate(content: string): string {
 </head>
 <body>
   <div class="container">
+    <!-- Logo Header -->
+    <div style="text-align: center; padding: 30px 30px 20px 30px; background-color: #ffffff;">
+      <img src="https://chorepulse.com/logo-transparent.png" alt="ChorePulse" style="height: 50px; width: auto;" />
+    </div>
     ${content}
   </div>
 </body>
@@ -823,6 +827,84 @@ export const OWNER_GRADUATION_TEMPLATE = wrapEmailTemplate(`
 `)
 
 // ============================================
+// FAMILY INVITATION EMAIL
+// ============================================
+
+export const FAMILY_INVITATION_TEMPLATE = wrapEmailTemplate(`
+  <div class="header">
+    <h1>👋 You're Invited to Join {{familyName}}!</h1>
+    <p>{{inviterName}} wants you on their ChorePulse family</p>
+  </div>
+
+  <div class="content">
+    <p>Hi {{inviteeName}},</p>
+
+    <p><strong>{{inviterName}}</strong> has invited you to join <strong>{{familyName}}</strong> on ChorePulse - a family task and chore management platform.</p>
+
+    <div class="highlight-box">
+      <h3>📝 Your Role: {{userRole}}</h3>
+      <p>{{roleDescription}}</p>
+    </div>
+
+    <h2>🎯 What is ChorePulse?</h2>
+    <p>ChorePulse helps families build better habits together through:</p>
+
+    <ul class="checklist">
+      <li><strong>Task Management</strong> - Complete chores and earn points</li>
+      <li><strong>Achievement System</strong> - Unlock badges and track progress</li>
+      <li><strong>Family Analytics</strong> - See how everyone contributes</li>
+      <li><strong>Rewards</strong> - Redeem points for family rewards</li>
+    </ul>
+
+    <div class="quote-box">
+      <strong>Research shows:</strong> "Families with structured routines experience less stress, better communication, and stronger relationships."
+    </div>
+
+    <h2>✨ Get Started in 2 Steps</h2>
+
+    <ol style="margin: 20px 0; padding-left: 20px;">
+      <li><strong>Accept the invitation</strong> - Click the button below to create your account</li>
+      <li><strong>Set your password</strong> - Choose a secure password to access your account</li>
+    </ol>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="{{invitationUrl}}" class="cta-button">Accept Invitation & Join {{familyName}}</a>
+    </div>
+
+    <p style="font-size: 14px; color: #666; text-align: center;">
+      This invitation link expires in 7 days.<br>
+      If you didn't expect this invitation, you can safely ignore this email.
+    </p>
+
+    <h3>💡 What Happens Next?</h3>
+    <p>After you accept:</p>
+    <ul>
+      <li>You'll set up your account and password</li>
+      <li>You'll join {{familyName}}'s dashboard</li>
+      <li>You can start viewing and completing tasks</li>
+      <li>You'll earn points and unlock achievements!</li>
+    </ul>
+
+    <p>We're excited to welcome you to the ChorePulse family! 💙</p>
+
+    <p>Best regards,<br>
+    <strong>The ChorePulse Team</strong></p>
+  </div>
+
+  <div class="footer">
+    <p><strong>ChorePulse</strong> - Building Happier Families Through Better Habits</p>
+    <p>
+      <a href="{{appUrl}}">Learn More</a> •
+      <a href="{{appUrl}}/help">Help Center</a>
+    </p>
+    <p class="unsubscribe">
+      This is a one-time invitation email.<br>
+      Questions? Reply to this email or contact support@chorepulse.com
+    </p>
+  </div>
+`)
+
+// ============================================
 // NON-OWNER USER SEQUENCE - EMAIL 1: WELCOME TO FAMILY
 // ============================================
 
@@ -1432,6 +1514,9 @@ export const EMAIL_TEMPLATES = {
   OWNER_FAMILY_REPORT: OWNER_FAMILY_REPORT_TEMPLATE,
   OWNER_MOMENTUM: OWNER_MOMENTUM_TEMPLATE,
   OWNER_GRADUATION: OWNER_GRADUATION_TEMPLATE,
+
+  // Family invitations
+  FAMILY_INVITATION: FAMILY_INVITATION_TEMPLATE,
 
   // Non-owner user sequence
   USER_WELCOME: USER_WELCOME_TEMPLATE,

@@ -2,7 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { type NextRequest } from 'next/server'
 import bcrypt from 'bcryptjs'
-import { sendParentalConsentConfirmation } from '@/lib/email'
+import { sendParentalConsentConfirmation, sendFamilyInvitationEmail } from '@/lib/email'
+import crypto from 'crypto'
 
 /**
  * POST /api/users
@@ -187,6 +188,52 @@ export async function POST(request: NextRequest) {
           // Don't fail the request if email fails
         })
       }
+    }
+
+    // Send invitation email to adult members with email addresses
+    if (role === 'adult' && email && newUser) {
+      // Generate secure invitation token
+      const invitationToken = crypto.randomBytes(32).toString('hex')
+      const tokenExpiry = new Date()
+      tokenExpiry.setDate(tokenExpiry.getDate() + 7) // 7 days from now
+
+      // Store invitation token in user record
+      await supabase
+        .from('users')
+        .update({
+          invitation_token: invitationToken,
+          invitation_token_expiry: tokenExpiry.toISOString(),
+          invitation_status: 'pending'
+        })
+        .eq('id', newUser.id)
+
+      // Get inviter's information
+      const { data: inviter } = await supabase
+        .from('users')
+        .select('name')
+        .eq('id', currentUser.id)
+        .single()
+
+      // Get organization name
+      const { data: org } = await supabase
+        .from('organizations')
+        .select('name')
+        .eq('id', currentUser.organization_id)
+        .single()
+
+      // Send invitation email (don't block on this)
+      sendFamilyInvitationEmail({
+        inviteeEmail: email,
+        inviteeName: name,
+        inviterName: inviter?.name || 'Your family manager',
+        familyName: org?.name || 'your family',
+        userRole: role,
+        invitationToken,
+        organizationId: currentUser.organization_id
+      }).catch(err => {
+        console.error('Failed to send family invitation email:', err)
+        // Don't fail the request if email fails
+      })
     }
 
     return NextResponse.json({
