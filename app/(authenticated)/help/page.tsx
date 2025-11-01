@@ -595,24 +595,26 @@ export default function HelpPage() {
         </div>
 
         {/* Category Filter Pills */}
-        <div className="mb-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full whitespace-nowrap transition-all ${
-                selectedCategory === category.id
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-              }`}
-            >
-              <span className="mr-1.5">{category.icon}</span>
-              <span className="font-medium">{category.label}</span>
-              <span className={`ml-1.5 text-xs ${selectedCategory === category.id ? 'text-blue-100' : 'text-gray-500'}`}>
-                ({category.count})
-              </span>
-            </button>
-          ))}
+        <div className="mb-6">
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-3 sm:px-4 py-2 rounded-full transition-all flex items-center gap-1.5 text-sm sm:text-base ${
+                  selectedCategory === category.id
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                }`}
+              >
+                <span className="text-base sm:text-lg">{category.icon}</span>
+                <span className="font-medium">{category.label}</span>
+                <span className={`text-xs ${selectedCategory === category.id ? 'text-blue-100' : 'text-gray-500'}`}>
+                  ({category.count})
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* FAQ Accordion */}
