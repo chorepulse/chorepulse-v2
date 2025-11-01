@@ -227,7 +227,7 @@ export default function HelpPage() {
     },
     {
       id: 'not-enough-points',
-      question: 'What if I don't have enough points for a reward?',
+      question: "What if I don't have enough points for a reward?",
       category: 'rewards',
       keywords: ['not enough', 'insufficient', 'need more', 'points'],
       answer: (
@@ -410,7 +410,7 @@ export default function HelpPage() {
     // Troubleshooting
     {
       id: 'points-not-showing',
-      question: 'My points aren't showing up. Why?',
+      question: "My points aren't showing up. Why?",
       category: 'troubleshooting',
       keywords: ['points', 'not showing', 'missing', 'bug'],
       answer: (
@@ -428,7 +428,7 @@ export default function HelpPage() {
     },
     {
       id: 'cant-redeem',
-      question: 'I can't redeem a reward. What's wrong?',
+      question: "I can't redeem a reward. What's wrong?",
       category: 'troubleshooting',
       keywords: ['cant redeem', 'reward', 'blocked', 'disabled'],
       answer: (
