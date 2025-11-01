@@ -51,7 +51,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center justify-center">
             <Image
-              src="/logos/ChorePulse Logo 1-Transparent.png"
+              src="/logo-transparent.png"
               alt="ChorePulse"
               width={256}
               height={64}
