@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useEffect, useState } from 'react'
 
@@ -80,13 +81,16 @@ export default function TopNav() {
           {/* Logo */}
           <Link
             href="/dashboard"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center hover:opacity-80 transition-opacity"
             aria-label="ChorePulse home"
           >
-            <div className="w-8 h-8 bg-gradient-ai rounded-lg flex items-center justify-center shadow-elevated" aria-hidden="true">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-ai bg-clip-text text-transparent">ChorePulse</span>
+            <Image
+              src="/logo-transparent.png"
+              alt="ChorePulse"
+              width={150}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Navigation Links */}
